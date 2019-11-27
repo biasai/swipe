@@ -17,17 +17,18 @@ android {
 
     // 打包源码jar
     task sourcesJar(type: Jar) {
-        //from android.sourceSets.main.java.srcDirs
+        from android.sourceSets.main.java.srcDirs
         //classifier = 'sources'
+        classifier = 'class'
     }
     //编译groovy代码时采用 UTF-8
     tasks.withType(GroovyCompile) {
-        //groovyOptions.encoding = "MacRoman"
+        groovyOptions.encoding = "MacRoman"
     }
 
     //编译JAVA文件时采用UTF-8
     tasks.withType(JavaCompile) {
-        //options.encoding = "UTF-8"
+        options.encoding = "UTF-8"
     }
 
     task javadoc(type: Javadoc) {
@@ -39,8 +40,8 @@ android {
 
     // 打包文档jar
     task javadocJar(type: Jar, dependsOn: javadoc) {
-        //classifier = 'javadoc'
-        //from javadoc.destinationDir
+        classifier = 'javadoc'
+        from javadoc.destinationDir
     }
 
     artifacts {
