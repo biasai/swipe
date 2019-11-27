@@ -18,8 +18,7 @@ android {
     // 打包源码jar
     task sourcesJar(type: Jar) {
         from android.sourceSets.main.java.srcDirs
-        //classifier = 'sources'
-        classifier = 'class'
+        classifier = 'sources'
     }
     //编译groovy代码时采用 UTF-8
     tasks.withType(GroovyCompile) {
@@ -28,7 +27,8 @@ android {
 
     //编译JAVA文件时采用UTF-8
     tasks.withType(JavaCompile) {
-        options.encoding = "UTF-8"
+        //options.encoding = "UTF-8"
+        options.encoding = "US-ASCII"
     }
 
     task javadoc(type: Javadoc) {
