@@ -27,8 +27,7 @@ android {
 
     //编译JAVA文件时采用UTF-8
     tasks.withType(JavaCompile) {
-        //options.encoding = "UTF-8"
-        options.encoding = "US-ASCII"
+        options.encoding = "UTF-8"
     }
 
     task javadoc(type: Javadoc) {
